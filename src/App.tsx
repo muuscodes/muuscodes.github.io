@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
+import Profile from "./img/profile.jpeg";
 
 function App() {
   const passions = ["tree", "child", "puzzle"];
@@ -69,7 +70,7 @@ function App() {
       </div>
       <div className="section" id="intro">
         <div className="content-fit">
-          <img src="../src/img/profile.jpeg" alt="Evan Austin profile photo" />
+          <img src={`${Profile}`} alt="Evan Austin profile photo" />
           <div className="des scroll-mt-20" id="about">
             <div className="title">An impact-driven developer</div>
             <p>
@@ -180,7 +181,6 @@ function App() {
       </div>
       <footer id="footer">
         <a className="text-2xl" href="#top">
-          {/* &nbsp;^&nbsp; */}
           Back to top ^
         </a>
       </footer>
