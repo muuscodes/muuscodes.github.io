@@ -19,10 +19,19 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+main {
+  width: 100vw;
+}
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  width: 100%;
+}
 .section {
   width: 100%;
   min-height: 100vh;
-  position: relative;
+  scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,12 +101,12 @@ nav li:hover {
   );
   transform: scaleY(-1) translateY(-0.44lh);
 }
-.section .decorate {
+/* .section .decorate {
   position: fixed;
   z-index: -100;
   pointer-events: none;
-}
-#intro .content-fit {
+} */
+#content .content-fit {
   display: flex;
   flex-direction: row;
   gap: 10%;
@@ -131,13 +140,13 @@ img {
   font-size: 5em;
   font-weight: bold;
 }
-#description .content-fit {
+.des .content-fit {
   padding-right: 30%;
 }
-#description .number {
+.des .number {
   font-size: 5em;
 }
-#description .title {
+.des .title {
   font-size: 7em;
   font-weight: 500;
 }
@@ -210,7 +219,7 @@ footer {
   #banner .title {
     font-size: 5em;
   }
-  #intro .content-fit {
+  #content .content-fit {
     flex-direction: column;
   }
 }
@@ -218,7 +227,7 @@ footer {
   #banner .title {
     font-size: 3em;
   }
-  #intro .content-fit {
+  #content .content-fit {
     flex-direction: column;
   }
   .section .number {
@@ -227,7 +236,7 @@ footer {
   .section .content-fit .title {
     font-size: 2em;
   }
-  #description .content-fit {
+  .des .content-fit {
     padding-right: 0;
   }
   #contact table {
@@ -235,8 +244,5 @@ footer {
   }
   #contact .sign {
     font-size: 2em;
-  }
-  #container3D {
-    position: sticky;
   }
 }
