@@ -22,7 +22,7 @@ function App() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsTreeVisible(true);
-          observer.unobserve(entry.target); // Stop observing after it becomes visible
+          observer.unobserve(entry.target);
         }
       });
     });
@@ -33,15 +33,15 @@ function App() {
 
     return () => {
       if (treeIconRef.current) {
-        observer.unobserve(treeIconRef.current); // Clean up observer on unmount
+        observer.unobserve(treeIconRef.current);
       }
     };
   }, []);
   return (
     <>
       <header className="header">
-        <nav className="content-fit">
-          <ul className="content-fit">
+        <nav>
+          <ul className="items-center flex justify-end">
             <li>
               <a href="#about">About</a>
             </li>
@@ -52,46 +52,42 @@ function App() {
               <a href="#work">Work</a>
             </li>
             <li>
-              <a href="#footer">Contact</a>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </nav>
       </header>
       <main className="container">
-        <div className="section" id="banner">
+        <section className="section" id="banner">
           <div className="content-fit">
-            <div
+            <h1
               className="title animateBanner"
               data-before="EVAN AUSTIN"
               id="top"
             >
               EVAN AUSTIN
-            </div>
+            </h1>
           </div>
-        </div>
-        <div className="section" id="content">
-          <div className="content-fit">
+        </section>
+        <section className="section">
+          <div className="font-bolder flex flex-row gap-10 justify-between items-center">
             <img src={`${Profile}`} alt="Evan Austin profile photo" />
-            <div className="des" id="about">
-              <div className="title">An impact-driven developer</div>
+            <div className="flex flex-col gap-4" id="about">
+              <h2 className="text-6xl font-bold">An impact-driven developer</h2>
               <p>
-                As a passionate software developer, I approach technology with a
-                focus on creating meaningful impact. My journey began with three
-                transformative years in the Peace Corps, where I engaged in
-                community development projects that emphasized sustainable
-                solutions and collaboration. This experience deepened my
-                understanding of the social implications of technology and
-                inspired me to leverage my skills in software development to
-                address real-world challenges. I believe that technology should
-                empower individuals and communities, and I am dedicated to
-                building applications that not only solve problems but also
-                foster positive change. I am excited to bring this unique
-                perspective to the tech industry.
+                As a impact-first software developer, I approach technology with
+                a focus on creating meaningful impact. Three years serving in
+                the Peace Corps in rural communities in both Senegal and El
+                Salvador inspired me to leverage my skills in software
+                development to address real-world challenges. I believe that
+                technology should empower individuals and communities, and I am
+                dedicated to building applications that not only solve problems
+                but also foster positive change.
               </p>
             </div>
           </div>
-        </div>
-        <div className="section" id="content">
+        </section>
+        <section className="section">
           <div className="content-fit">
             <div className="flex flex-row w-500px">
               <i
@@ -120,8 +116,8 @@ function App() {
                 onClick={() => handlePassions(2)}
               ></i>
             </div>
-            <div className="des" id="passions">
-              <div className="title">Passions</div>
+            <div className="flex flex-col gap-4" id="passions">
+              <h2 className="text-6xl font-bold">Passions</h2>
               <p>
                 {activePassion === "tree"
                   ? passionContent[0]
@@ -131,32 +127,43 @@ function App() {
               </p>
             </div>
           </div>
-        </div>
-        <div className="section" id="content">
+        </section>
+        <section className="section">
           <div className="content-fit">
-            <div className="number">02</div>
-            <div className="des" id="work">
-              <div className="title">Dedicated to quality content</div>
-              <p>
-                As a developer, I focus on creating accessible apps and websites
-                that cater to diverse needs and solve real-world problems. My
-                passion for the environment inspires me to build tools that
-                promote sustainability, while my commitment to youth development
-                drives me to create platforms that foster community engagement.
-                One of my projects is a crossword puzzle-sharing website,
-                allowing users to create custom crosswords and share them with
-                friends, making learning fun and interactive. Additionally, I
-                have developed a fully functional API for Sudoku puzzles,
-                providing users with a seamless experience to generate and solve
-                puzzles, enhancing their problem-solving skills.
-              </p>
+            <div
+              className="flex flex-col gap-7 items-center w-[90vw]"
+              id="work"
+            >
+              <h2 className="text-6xl font-bold">
+                Dedicated to quality content
+              </h2>
+              <div className="flex flex-row justify-between w-5/6">
+                <figure>
+                  <img src={`${Profile}`} alt="Evan Austin profile photo" />
+                  <figcaption className="text-center text-xl text-bold">
+                    Social crossword creator app
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img src={`${Profile}`} alt="Evan Austin profile photo" />
+                  <figcaption className="text-center text-xl text-bold">
+                    Backend API
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img src={`${Profile}`} alt="Evan Austin profile photo" />
+                  <figcaption className="text-center text-xl text-bold">
+                    Sukodu app created offline
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="section" id="contact">
-          <div className="content-fit">
-            <div className="des">
-              <div className="title">CONTACT</div>
+        </section>
+        <section className="section" id="contact">
+          <div className="content-fit min-h-screen">
+            <div>
+              <h2 className="text-6xl font-bold">CONTACT</h2>
               <table>
                 <tr>
                   <td>
@@ -185,13 +192,13 @@ function App() {
               </table>
             </div>
           </div>
-        </div>
+        </section>
       </main>
-      {/* <footer id="footer">
+      <footer id="footer">
         <a className="text-2xl" href="#top">
           Back to top ^
         </a>
-      </footer> */}
+      </footer>
     </>
   );
 }
