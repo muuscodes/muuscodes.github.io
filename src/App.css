@@ -22,9 +22,12 @@ body {
 .container {
   width: 100%;
   margin: auto;
-  height: 100vh;
+  padding: 2rem;
+  height: 110vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  scroll-padding-top: 4rem;
+  scroll-snap-stop: normal;
 }
 .section {
   min-height: 100vh;
@@ -32,6 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-snap-align: start;
 }
 .content-fit {
   margin: auto;
@@ -112,7 +116,7 @@ img {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  height: 120vh;
+  height: 130vh;
 }
 #contact table {
   width: min(800px, 90vw);
@@ -141,7 +145,6 @@ footer {
   color: #333;
   margin-right: 5%;
   margin-bottom: 20px;
-  background-color: transparent;
 }
 @keyframes banner-opening {
   0% {

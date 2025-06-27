@@ -1,6 +1,14 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import Profile from "./img/profile.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTree } from "@fortawesome/free-solid-svg-icons";
+import { faChildReaching } from "@fortawesome/free-solid-svg-icons";
+import { faPuzzlePiece } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faSquarePhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const passions = ["tree", "child", "puzzle"];
@@ -88,36 +96,40 @@ function App() {
           </div>
         </section>
         <section className="section">
-          <div className="content-fit">
+          <div className="font-bolder flex flex-row gap-10 justify-between items-center">
             <div className="flex flex-row w-500px">
-              <i
+              <FontAwesomeIcon
                 ref={treeIconRef}
-                className={`fa-solid icon fa-tree passion-opening ${
+                icon={faTree}
+                className={`icon passion-opening ${
                   activePassion === "tree"
                     ? "scale-135"
                     : "opacity-50 hover:opacity-80 hover:scale-110"
                 } ${isTreeVisible ? "animatePassion" : ""}`}
                 onClick={() => handlePassions(0)}
-              ></i>
-              <i
-                className={`fa-solid icon fa-child ${
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faChildReaching}
+                className={`icon ${
                   activePassion === "child"
                     ? "scale-135"
                     : "opacity-50 hover:opacity-80 hover:scale-110"
                 }`}
                 onClick={() => handlePassions(1)}
-              ></i>
-              <i
-                className={`fa-solid icon fa-puzzle-piece ${
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faPuzzlePiece}
+                className={`icon fa-puzzle-piece ${
                   activePassion === "puzzle"
                     ? "scale-135"
                     : "opacity-50 hover:opacity-80 hover:scale-110"
                 }`}
                 onClick={() => handlePassions(2)}
-              ></i>
+              ></FontAwesomeIcon>
             </div>
             <div className="flex flex-col gap-4" id="passions">
               <h2 className="text-6xl font-bold">Passions</h2>
+
               <p>
                 {activePassion === "tree"
                   ? passionContent[0]
@@ -167,25 +179,27 @@ function App() {
               <table>
                 <tr>
                   <td>
-                    <i className="fa-solid fa-envelope"></i> Email
+                    <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon> Email
                   </td>
                   <td>muuscodes@gmail.com</td>
                 </tr>
                 <tr>
                   <td>
-                    <i className="fa-solid fa-square-phone"></i> Phone
+                    <FontAwesomeIcon icon={faSquarePhone}></FontAwesomeIcon>{" "}
+                    Phone
                   </td>
                   <td>+1 (720) 347-9325</td>
                 </tr>
                 <tr>
                   <td>
-                    <i className="fa-brands fa-github"></i> Github
+                    <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon> Github
                   </td>
                   <td>https://github.com/muuscodes</td>
                 </tr>
                 <tr>
                   <td>
-                    <i className="fa-brands fa-linkedin"></i> LinkedIn
+                    <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>{" "}
+                    LinkedIn
                   </td>
                   <td>linkedin.com/evanaustin4</td>
                 </tr>
