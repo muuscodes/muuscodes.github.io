@@ -9,8 +9,12 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faSquarePhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import SplitText from "./SplitText.tsx";
 
 function App() {
+  const handleAnimationComplete = () => {
+    console.log("All letters have animated!");
+  };
   const passions = ["tree", "child", "puzzle"];
   const passionContent = [
     `Sustainable forestry. A passion for sustainable forestry and tree identification drives a deep appreciation for nature's ecosystems. Exploring forests and learning to identify various tree species fosters a connection to the environment and highlights the importance of conservation. This interest not only promotes responsible forest management but also encourages others to recognize the value of trees in maintaining biodiversity and supporting wildlife habitats.`,
@@ -68,13 +72,29 @@ function App() {
       <main className="container">
         <section className="section" id="banner">
           <div className="content-fit">
-            <h1
+            {
+              /* <h1
               className="title animateBanner"
               data-before="EVAN AUSTIN"
               id="top"
             >
               EVAN AUSTIN
-            </h1>
+            </h1> */
+              <SplitText
+                text="Evan Austin!"
+                className="title text-2xl font-semibold text-center"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+            }
           </div>
         </section>
         <section className="section">
