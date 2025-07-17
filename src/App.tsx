@@ -9,12 +9,9 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faSquarePhone } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import SplitText from "./SplitText.tsx";
+import DecryptedText from "./DecryptedText.tsx";
 
 function App() {
-  const handleAnimationComplete = () => {
-    console.log("All letters have animated!");
-  };
   const passions = ["tree", "child", "puzzle"];
   const passionContent = [
     `Sustainable forestry. A passion for sustainable forestry and tree identification drives a deep appreciation for nature's ecosystems. Exploring forests and learning to identify various tree species fosters a connection to the environment and highlights the importance of conservation. This interest not only promotes responsible forest management but also encourages others to recognize the value of trees in maintaining biodiversity and supporting wildlife habitats.`,
@@ -24,6 +21,8 @@ function App() {
   const [activePassion, setActivePassion] = useState(passions[0]);
   const treeIconRef = useRef(null);
   const [isTreeVisible, setIsTreeVisible] = useState(false);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePassions = (index: number) => {
     setActivePassion(passions[index]);
@@ -34,6 +33,10 @@ function App() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsTreeVisible(true);
+          const index = sectionsRef.current.findIndex(
+            (section) => section === entry.target
+          );
+          setCurrentIndex(index);
           observer.unobserve(entry.target);
         }
       });
@@ -49,58 +52,61 @@ function App() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event: any) => {
+      if (event.key === "ArrowDown" || event.key === " ") {
+        event.preventDefault();
+        let nextIndex = 0;
+        if (currentIndex < 4) {
+          nextIndex = currentIndex + 1;
+        } else {
+          nextIndex = currentIndex;
+        }
+        sectionsRef.current[nextIndex]?.scrollIntoView({ behavior: "smooth" });
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        const prevIndex = Math.max(currentIndex - 1, 0);
+        sectionsRef.current[prevIndex]?.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
   return (
     <>
-      <header className="header">
-        <nav>
-          <ul className="items-center flex justify-end">
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#passions">Interests</a>
-            </li>
-            <li>
-              <a href="#work">Work</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <header className="header"></header>
       <main className="container">
-        <section className="section" id="banner">
+        <section
+          className="section"
+          id="top"
+          ref={(el) => {
+            if (el) sectionsRef.current[0] = el;
+          }}
+        >
           <div className="content-fit">
             {
-              /* <h1
-              className="title animateBanner"
-              data-before="EVAN AUSTIN"
-              id="top"
-            >
-              EVAN AUSTIN
-            </h1> */
-              <SplitText
-                text="Evan Austin!"
-                className="title text-2xl font-semibold text-center"
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-                onLetterAnimationComplete={handleAnimationComplete}
+              <DecryptedText
+                text="EVAN AUSTIN"
+                animateOn="view"
+                revealDirection="start"
               />
             }
           </div>
         </section>
-        <section className="section">
+        <section
+          className="section"
+          id="about"
+          ref={(el) => {
+            if (el) sectionsRef.current[1] = el;
+          }}
+        >
           <div className="font-bolder flex flex-row gap-10 justify-between items-center">
             <img src={`${Profile}`} alt="Evan Austin profile photo" />
-            <div className="flex flex-col gap-4" id="about">
+            <div className="flex flex-col gap-4">
               <h2 className="text-6xl font-bold">An impact-driven developer</h2>
               <p>
                 As a impact-first software developer, I approach technology with
@@ -115,7 +121,13 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="section">
+        <section
+          className="section"
+          id="passions"
+          ref={(el) => {
+            if (el) sectionsRef.current[2] = el;
+          }}
+        >
           <div className="font-bolder flex flex-row gap-10 justify-between items-center">
             <div className="flex flex-row w-500px">
               <FontAwesomeIcon
@@ -147,9 +159,8 @@ function App() {
                 onClick={() => handlePassions(2)}
               ></FontAwesomeIcon>
             </div>
-            <div className="flex flex-col gap-4" id="passions">
+            <div className="flex flex-col gap-4">
               <h2 className="text-6xl font-bold">Passions</h2>
-
               <p>
                 {activePassion === "tree"
                   ? passionContent[0]
@@ -160,12 +171,15 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="section">
-          <div className="content-fit">
-            <div
-              className="flex flex-col gap-7 items-center w-[90vw]"
-              id="work"
-            >
+        <section
+          className="section"
+          id="work"
+          ref={(el) => {
+            if (el) sectionsRef.current[3] = el;
+          }}
+        >
+          <div className="font-bolder flex flex-row gap-10 justify-between">
+            <div className="flex flex-col gap-7 items-center">
               <h2 className="text-6xl font-bold">
                 Dedicated to quality content
               </h2>
@@ -192,7 +206,13 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="section" id="contact">
+        <section
+          className="section"
+          id="contact"
+          ref={(el) => {
+            if (el) sectionsRef.current[4] = el;
+          }}
+        >
           <div className="content-fit min-h-screen">
             <div>
               <h2 className="text-6xl font-bold">CONTACT</h2>

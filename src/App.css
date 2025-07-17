@@ -4,7 +4,7 @@ body {
   margin: 0;
   background-color: #1b1b1b;
   color: #333;
-  font-family: "devil breeze";
+  font-family: "devil breeze", serif;
   font-size: 14px;
   background: url("./img/background.jpeg") no-repeat fixed;
   background-size: cover;
@@ -30,69 +30,35 @@ body {
   scroll-snap-stop: normal;
 }
 .section {
-  min-height: 100vh;
+  height: 100vh;
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
-  align-items: center;
-  scroll-snap-align: start;
+  align-items: flex-start;
+  padding-top: 2rem;
 }
 .content-fit {
   margin: auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 2rem);
   position: relative;
   padding-block: 10em;
 }
-header {
-  padding-block: 1em;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10px;
-  backdrop-filter: blur(20px);
-  z-index: 100;
-  background-color: #1b1b1b11;
-  background-image: repeating-linear-gradient(
-    to right,
-    transparent 0 500px,
-    #eee1 500px 501px
-  );
-}
-nav li {
-  display: flex;
-  padding: 0 1rem 0;
-  font-weight: bold;
-  font-size: 1.5rem;
+
+.title {
   color: #333;
-}
-nav li:hover {
-  transform: scale(1.2);
-  font-weight: bolder;
-  text-decoration: underline;
-}
-#banner .title {
-  color: #333;
+  background-color: transparent;
   font-size: 11em;
-  font-family: "devil breeze";
-  font-weight: bold;
+  font-family: "devil breeze", serif;
   position: relative;
   overflow: visible;
   text-align: center;
 }
-#banner .title::before {
-  content: attr(data-before);
-  position: absolute;
-  z-index: -1;
-  color: #333;
-  mask: linear-gradient(
-    to bottom,
-    #000 -80%,
-    oklch(0 0 0/0),
-    #000,
-    oklch(0 0 0/0) 200%
-  );
+
+.title.show-before::before {
+  opacity: 1;
   transform: scaleY(-1) translateY(-0.44lh);
 }
+
 .icon {
   font-size: 6rem;
   padding: 1rem;
@@ -112,11 +78,12 @@ img {
 }
 #contact .content-fit {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: flex-start;
   flex-direction: column;
   text-align: center;
-  height: 130vh;
+  height: auto;
+  padding-top: 2rem;
 }
 #contact table {
   width: min(800px, 90vw);
@@ -145,21 +112,9 @@ footer {
   color: #333;
   margin-right: 5%;
   margin-bottom: 20px;
+  z-index: -1;
 }
-@keyframes banner-opening {
-  0% {
-    transform: translateY(0px);
-  }
-  40% {
-    transform: translateY(60px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-.animateBanner {
-  animation: banner-opening 2s ease-in-out forwards;
-}
+
 @keyframes passion-opening {
   0% {
     transform: scale(1);
