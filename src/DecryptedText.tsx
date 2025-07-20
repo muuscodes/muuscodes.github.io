@@ -245,16 +245,8 @@ export default function DecryptedText({
 
       <span aria-hidden="true">
         {displayText.split("").map((char, index) => {
-          const isRevealedOrDone =
-            revealedIndices.has(index) || !isScrambling || !isHovering;
-
           return (
-            <span
-              key={index}
-              className={`${
-                isRevealedOrDone ? className : encryptedClassName
-              } title `}
-            >
+            <span key={index} className={`${className}`}>
               {char}
             </span>
           );
