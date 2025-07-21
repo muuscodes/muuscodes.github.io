@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import Profile from "./img/profile.jpeg";
-import CrosswordCrew from "./img/crossword_crew_logo.jpg";
+import CrosswordCrew from "./img/crossword_crew_logo.jpeg";
 import SudokuApp from "./img/sudoku_logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTree } from "@fortawesome/free-solid-svg-icons";
