@@ -439,7 +439,7 @@ function App() {
                       <tr>
                         <td>
                           <a
-                            href="https://linkedin.com/evanaustin4"
+                            href="https://www.linkedin.com/in/evan-james-austin/"
                             target="_blank"
                             className="hover:cursor-pointer hover:opacity-70 hover:underline"
                           >
@@ -449,7 +449,7 @@ function App() {
                             LinkedIn
                           </a>
                         </td>
-                        <td>https://linkedin.com/evanaustin4</td>
+                        <td>https://www.linkedin.com/in/evan-james-austin/</td>
                       </tr>
                     </tbody>
                   </table>
