@@ -95,15 +95,9 @@ function App() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     window.addEventListener("resize", updateGridDimensions);
     updateGridDimensions();
-
-    return () => {
-      window.removeEventListener("resize", updateGridDimensions);
-    };
-  }, []);
-
-  useEffect(() => {
     const handleKeyDown = (event: any) => {
       if (
         event.key === "ArrowDown" ||
@@ -115,12 +109,12 @@ function App() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
     return () => {
+      window.removeEventListener("resize", updateGridDimensions);
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-
-  console.log(sectionsRef.current);
 
   return (
     <>
@@ -323,29 +317,36 @@ function App() {
                   revealDirection="start"
                 />
                 <div className="flex flex-row w-4/6 justify-between gap-5 items-center">
-                  <figure className="hover:scale-110 hover:cursor-pointer">
-                    <figcaption className="text-center text-2xl text-bolder">
-                      Crossword Crew: <br />A social crossword creator
-                    </figcaption>
-                    <br />
-                    <img
-                      src={`${CrosswordCrew}`}
-                      alt="Crossword Crew logo"
-                      className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
-                    />
-                  </figure>
-                  <figure className="hover:scale-110 hover:cursor-pointer">
-                    <figcaption className="text-center text-2xl text-bolder">
-                      Sukodu app: <br />
-                      Created entirely offline
-                    </figcaption>
-                    <br />
-                    <img
-                      src={`${SudokuApp}`}
-                      alt="Sudoku app logo"
-                      className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
-                    />
-                  </figure>
+                  <a
+                    href="https://crossword-crew.onrender.com/"
+                    target="_blank"
+                  >
+                    <figure className="hover:scale-110 hover:cursor-pointer">
+                      <figcaption className="text-center text-2xl text-bolder">
+                        Crossword Crew: <br />A social crossword creator
+                      </figcaption>
+                      <br />
+                      <img
+                        src={`${CrosswordCrew}`}
+                        alt="Crossword Crew logo"
+                        className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
+                      />
+                    </figure>
+                  </a>
+                  <a href="https://sudoku-for-fun.netlify.app/" target="_blank">
+                    <figure className="hover:scale-110 hover:cursor-pointer">
+                      <figcaption className="text-center text-2xl text-bolder">
+                        Sukodu app: <br />
+                        Created entirely offline
+                      </figcaption>
+                      <br />
+                      <img
+                        src={`${SudokuApp}`}
+                        alt="Sudoku app logo"
+                        className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
+                      />
+                    </figure>
+                  </a>
                 </div>
               </>
             ) : (
@@ -354,28 +355,35 @@ function App() {
                   Dedicated to quality content
                 </h2>
                 <div className="flex flex-col gap-10 items-center">
-                  <figure className="hover:scale-110 hover:cursor-pointer">
-                    <figcaption className="text-center text-2xl text-bolder">
-                      Crossword Crew
-                    </figcaption>
-                    <br />
-                    <img
-                      src={`${CrosswordCrew}`}
-                      alt="Crossword Crew logo"
-                      className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
-                    />
-                  </figure>
-                  <figure className="hover:scale-110 hover:cursor-pointer">
-                    <figcaption className="text-center text-2xl text-bolder">
-                      Sukodu app
-                    </figcaption>
-                    <br />
-                    <img
-                      src={`${SudokuApp}`}
-                      alt="Sudoku app logo"
-                      className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
-                    />
-                  </figure>
+                  <a
+                    href="https://crossword-crew.onrender.com/"
+                    target="_blank"
+                  >
+                    <figure className="hover:scale-110 hover:cursor-pointer">
+                      <figcaption className="text-center text-2xl text-bolder">
+                        Crossword Crew
+                      </figcaption>
+                      <br />
+                      <img
+                        src={`${CrosswordCrew}`}
+                        alt="Crossword Crew logo"
+                        className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
+                      />
+                    </figure>
+                  </a>
+                  <a href="https://sudoku-for-fun.netlify.app/" target="_blank">
+                    <figure className="hover:scale-110 hover:cursor-pointer">
+                      <figcaption className="text-center text-2xl text-bolder">
+                        Sukodu app
+                      </figcaption>
+                      <br />
+                      <img
+                        src={`${SudokuApp}`}
+                        alt="Sudoku app logo"
+                        className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
+                      />
+                    </figure>
+                  </a>
                 </div>
               </>
             )}
