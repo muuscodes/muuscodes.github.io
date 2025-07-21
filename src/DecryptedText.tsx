@@ -57,6 +57,7 @@ export default function DecryptedText({
   );
   const [hasAnimated, setHasAnimated] = useState<boolean>(false);
   const containerRef = useRef<HTMLSpanElement | null>(null);
+  console.log(isScrambling, revealedIndices);
 
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
