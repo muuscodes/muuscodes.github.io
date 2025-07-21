@@ -58,7 +58,7 @@ export default function DecryptedText({
   const [hasAnimated, setHasAnimated] = useState<boolean>(false);
   const containerRef = useRef<HTMLSpanElement | null>(null);
   if (isScrambling && revealedIndices) {
-    return;
+    //do nothing
   }
 
   useEffect(() => {
