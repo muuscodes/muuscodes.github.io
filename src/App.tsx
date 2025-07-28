@@ -67,29 +67,6 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   const handleKeyDown = (event: any) => {
-  //     if (event.key === "ArrowDown" || event.key === " ") {
-  //       event.preventDefault();
-  //       let nextIndex = 0;
-  //       if (currentIndex.current < 4) {
-  //         nextIndex = currentIndex.current + 1;
-  //       } else {
-  //         nextIndex = currentIndex.current;
-  //       }
-  //       sectionsRef.current[nextIndex]?.scrollIntoView({ behavior: "smooth" });
-  //     } else if (event.key === "ArrowUp") {
-  //       event.preventDefault();
-  //       const prevIndex = Math.max(currentIndex.current - 1, 0);
-  //       sectionsRef.current[prevIndex]?.scrollIntoView({ behavior: "smooth" });
-  //     }
-  //   };
-
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, []);
   const updateGridDimensions = () => {
     width.current = window.innerWidth;
   };
@@ -355,10 +332,7 @@ function App() {
                   Dedicated to quality content
                 </h2>
                 <div className="flex flex-col gap-10 items-center">
-                  <a
-                    href="https://crossword-crew.onrender.com/"
-                    target="_blank"
-                  >
+                  <a href="https://www.crosswordcrew.com/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
                         Crossword Crew
