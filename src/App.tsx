@@ -328,7 +328,7 @@ function App() {
               </>
             ) : (
               <>
-                <h2 className="text-3xl sm:text-4xl font-bold">
+                <h2 className="text-3xl sm:text-4xl font-bold ">
                   Dedicated to quality content
                 </h2>
                 <div className="flex flex-col gap-10 items-center">
