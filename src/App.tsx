@@ -294,10 +294,7 @@ function App() {
                   revealDirection="start"
                 />
                 <div className="flex flex-row w-4/6 justify-between gap-5 items-center">
-                  <a
-                    href="https://crossword-crew.onrender.com/"
-                    target="_blank"
-                  >
+                  <a href="https://www.crosswordcrew.com/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
                         Crossword Crew: <br />A social crossword creator
@@ -328,7 +325,7 @@ function App() {
               </>
             ) : (
               <>
-                <h2 className="text-3xl sm:text-4xl font-bold ">
+                <h2 className="text-3xl sm:text-4xl font-bold">
                   Dedicated to quality content
                 </h2>
                 <div className="flex flex-col gap-10 items-center">
