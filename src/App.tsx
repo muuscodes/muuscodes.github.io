@@ -451,14 +451,6 @@ function App() {
           </div>
         </section>
       </main>
-      {/* <footer id="footer">
-        <a
-          className="text-2xl border-4 border-white bg-gray-800 text-white"
-          href="#top"
-        >
-          Back to top ^
-        </a>
-      </footer> */}
     </>
   );
 }
