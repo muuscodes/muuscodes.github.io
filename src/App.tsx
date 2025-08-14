@@ -370,80 +370,87 @@ function App() {
           <div className="content-fit">
             <div>
               {width.current > 768 ? (
-                <>
+                <div className="flex flex-col gap-15">
                   <DecryptedText
                     text="CONTACT"
                     animateOn="view"
                     speed={160}
-                    className="text-6xl font-bold"
+                    className="text-6xl font-bold [b-10"
                     revealDirection="start"
                   />
-                  <table className="w-[70vw]">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <a
-                            href="mailto:muuscodes@gmail.com"
-                            className="hover:cursor-pointer hover:opacity-70 hover:underline"
-                          >
-                            <FontAwesomeIcon
-                              icon={faEnvelope}
-                            ></FontAwesomeIcon>{" "}
-                            Email
-                          </a>
-                        </td>
-                        <td>muuscodes@gmail.com</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://github.com/muuscodes"
-                            target="_blank"
-                            className="hover:cursor-pointer hover:opacity-70 hover:underline"
-                          >
-                            <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>{" "}
-                            Github
-                          </a>
-                        </td>
-                        <td>https://github.com/muuscodes</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <a
-                            href="https://www.linkedin.com/in/evan-james-austin/"
-                            target="_blank"
-                            className="hover:cursor-pointer hover:opacity-70 hover:underline"
-                          >
-                            <FontAwesomeIcon
-                              icon={faLinkedin}
-                            ></FontAwesomeIcon>{" "}
-                            LinkedIn
-                          </a>
-                        </td>
-                        <td>https://www.linkedin.com/in/evan-james-austin/</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </>
+                  <div className="flex flex-row gap-15 items-center text-4xl pt-10">
+                    <a
+                      href="mailto:muuscodes@gmail.com"
+                      className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                    >
+                      Email{" "}
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className="text-6xl"
+                      ></FontAwesomeIcon>{" "}
+                    </a>
+                    <a
+                      href="https://github.com/muuscodes"
+                      target="_blank"
+                      className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                    >
+                      Github
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        className="text-6xl hover:cursor-pointer hover:opacity-70 hover:underline"
+                      ></FontAwesomeIcon>{" "}
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/evan-james-austin/"
+                      target="_blank"
+                      className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                    >
+                      LinkedIn
+                      <FontAwesomeIcon
+                        icon={faLinkedin}
+                        className="text-6xl hover:cursor-pointer hover:opacity-70 hover:underline"
+                      ></FontAwesomeIcon>
+                    </a>
+                  </div>
+                </div>
               ) : (
                 <div className="flex flex-col gap-15">
                   <h2 className="text-4xl sm:text-5xl font-bold">CONTACT</h2>
-                  <div className="flex flex-col gap-10 items-center text-3xl">
-                    Email{" "}
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="text-6xl"
-                    ></FontAwesomeIcon>{" "}
-                    Github
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="text-6xl"
-                    ></FontAwesomeIcon>{" "}
-                    LinkedIn
-                    <FontAwesomeIcon
-                      icon={faLinkedin}
-                      className="text-6xl"
-                    ></FontAwesomeIcon>
+                  <div className="flex flex-col gap-15">
+                    <div className="flex flex-col gap-15 items-center text-3xl pt-10">
+                      <a
+                        href="mailto:muuscodes@gmail.com"
+                        className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                      >
+                        Email{" "}
+                        <FontAwesomeIcon
+                          icon={faEnvelope}
+                          className="text-4xl"
+                        ></FontAwesomeIcon>{" "}
+                      </a>
+                      <a
+                        href="https://github.com/muuscodes"
+                        target="_blank"
+                        className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                      >
+                        Github
+                        <FontAwesomeIcon
+                          icon={faGithub}
+                          className="text-4xl hover:cursor-pointer hover:opacity-70 hover:underline"
+                        ></FontAwesomeIcon>{" "}
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/evan-james-austin/"
+                        target="_blank"
+                        className="hover:cursor-pointer hover:opacity-70 hover:underline flex items-center gap-4"
+                      >
+                        LinkedIn
+                        <FontAwesomeIcon
+                          icon={faLinkedin}
+                          className="text-4xl hover:cursor-pointer hover:opacity-70 hover:underline"
+                        ></FontAwesomeIcon>
+                      </a>
+                    </div>
                   </div>
                 </div>
               )}
