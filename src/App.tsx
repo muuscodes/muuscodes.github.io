@@ -297,7 +297,8 @@ function App() {
                   <a href="https://www.crosswordcrew.com/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
-                        Crossword Crew: <br />A social crossword creator
+                        <span className="font-bold">Crossword Crew:</span>
+                        <br />A social crossword creator
                       </figcaption>
                       <br />
                       <img
@@ -310,7 +311,7 @@ function App() {
                   <a href="https://sudoku-for-fun.netlify.app/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
-                        Sukodu app: <br />
+                        <span className="font-bold">Sudoku App:</span> <br />
                         Created entirely offline
                       </figcaption>
                       <br />
@@ -332,7 +333,7 @@ function App() {
                   <a href="https://www.crosswordcrew.com/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
-                        Crossword Crew
+                        <span className="font-bold">Crossword Crew</span>
                       </figcaption>
                       <br />
                       <img
@@ -345,7 +346,7 @@ function App() {
                   <a href="https://sudoku-for-fun.netlify.app/" target="_blank">
                     <figure className="hover:scale-110 hover:cursor-pointer">
                       <figcaption className="text-center text-2xl text-bolder">
-                        Sukodu app
+                        <span className="font-bold">Sudoku App</span>
                       </figcaption>
                       <br />
                       <img
