@@ -4,6 +4,10 @@ import type { HTMLMotionProps } from "framer-motion";
 import { motion } from "framer-motion";
 import type { CSSProperties } from "react";
 
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const styles: { wrapper: CSSProperties; srOnly: CSSProperties } = {
   wrapper: {
     display: "inline-block",
@@ -31,7 +35,6 @@ interface DecryptedTextProps extends HTMLAttributes<HTMLSpanElement> {
   characters?: string;
   className?: string;
   parentClassName?: string;
-  encryptedClassName?: string;
   animateOn?: "hover" | "view";
 }
 
@@ -45,7 +48,6 @@ export default function DecryptedText({
   characters = "!@#$%^&*()_+",
   className = "",
   parentClassName = "",
-  encryptedClassName = "",
   animateOn = "hover",
   ...props
 }: DecryptedTextProps) {
@@ -146,7 +148,7 @@ export default function DecryptedText({
       }
     };
 
-    if (isHovering) {
+    if (isHovering && !prefersReducedMotion) {
       setIsScrambling(true);
       interval = setInterval(() => {
         setRevealedIndices((prevRevealed) => {

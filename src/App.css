@@ -103,11 +103,8 @@ img {
 #contact .sign {
   font-size: 10em;
 }
-/* footer {
-  display: flex;
-  float: right;
-  color: #333;
-  margin-right: 5%;
-  margin-bottom: 20px;
-  z-index: 100;
-} */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto;
+  }
+}
