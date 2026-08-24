@@ -6,8 +6,11 @@ I'm an impact-driven software developer. After five years living in and working 
 
 ## Featured projects
 
+- [Pyxie](https://www.mypyxie.com/): build your family's care manual
 - [Crossword Crew](https://www.crosswordcrew.com/): a social crossword creator
 - [Sudoku App](https://sudoku-for-fun.netlify.app/): a sudoku game built entirely offline
+- [Address Insights](https://insights-eight-phi.vercel.app/): what a US address is really like
+- [Birdle](https://birdle-rho.vercel.app/): a daily bird guessing game
 
 ## Tech stack
 

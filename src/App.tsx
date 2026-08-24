@@ -1,8 +1,11 @@
 import "./App.css";
 import { useState } from "react";
-import Profile from "./img/profile.jpeg";
+import Profile from "./img/headshot_white.png";
 import CrosswordCrew from "./img/crossword_crew_logo.jpeg";
 import SudokuApp from "./img/sudoku_logo.png";
+import Pyxie from "./img/pyxie_logo.png";
+import Insights from "./img/insights_logo.svg";
+import Birdle from "./img/birdle_logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTree } from "@fortawesome/free-solid-svg-icons";
 import { faChildReaching } from "@fortawesome/free-solid-svg-icons";
@@ -37,9 +40,18 @@ const projects = [
   {
     name: "Crossword Crew",
     tagline: "A social crossword creator",
-    href: "https://www.crosswordcrew.com/",
+    href: "https://crossword-crew.onrender.com/",
     image: CrosswordCrew,
     alt: "Crossword Crew logo",
+    lightBg: false,
+  },
+  {
+    name: "Pyxie",
+    tagline: "Build your family's care manual",
+    href: "https://www.mypyxie.com/",
+    image: Pyxie,
+    alt: "Pyxie logo",
+    lightBg: true,
   },
   {
     name: "Sudoku App",
@@ -47,13 +59,30 @@ const projects = [
     href: "https://sudoku-for-fun.netlify.app/",
     image: SudokuApp,
     alt: "Sudoku app logo",
+    lightBg: false,
+  },
+  {
+    name: "Address Insights",
+    tagline: "What a US address is really like",
+    href: "https://insights-eight-phi.vercel.app/",
+    image: Insights,
+    alt: "Address Insights logo",
+    lightBg: false,
+  },
+  {
+    name: "Birdle",
+    tagline: "A daily bird guessing game",
+    href: "https://birdle-rho.vercel.app/",
+    image: Birdle,
+    alt: "Birdle logo",
+    lightBg: false,
   },
 ];
 
 const contacts = [
   {
     name: "Email",
-    href: "mailto:muuscodes@gmail.com",
+    href: "mailto:evanjamesaustin@gmail.com",
     icon: faEnvelope,
     external: false,
   },
@@ -176,31 +205,29 @@ function App() {
       <section className="section" id="work">
         <div className="flex flex-col gap-10 items-center text-center w-full">
           <SectionHeading text="Dedicated to quality content" speed={110} />
-          <div className="flex flex-col md:flex-row gap-10 md:gap-5 md:w-4/6 items-center md:justify-between">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-10 w-full max-w-3xl">
             {projects.map((project) => (
               <a
                 key={project.name}
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-32 sm:w-40 md:w-44 lg:w-48"
               >
-                <figure className="hover:scale-110 hover:cursor-pointer">
-                  <figcaption className="text-center text-2xl text-bolder">
-                    <span className="font-bold">
-                      {project.name}
-                      <span className="hidden md:inline">:</span>
-                    </span>
-                    <span className="hidden md:inline">
-                      <br />
-                      {project.tagline}
-                    </span>
-                  </figcaption>
-                  <br />
+                <figure className="flex flex-col items-center gap-3 transition-transform duration-200 hover:scale-110 hover:cursor-pointer">
                   <img
                     src={`${project.image}`}
                     alt={project.alt}
-                    className="w-[50vw] md:w-[30vw] lg:w-[20vw]"
+                    className={project.lightBg ? "w-full bg-white" : "w-full"}
                   />
+                  <figcaption className="text-center w-full bg-[#191616de] text-white/85 rounded-2xl px-3 py-2">
+                    <span className="block text-xl md:text-2xl font-bold text-white">
+                      {project.name}
+                    </span>
+                    <span className="hidden md:block text-base">
+                      {project.tagline}
+                    </span>
+                  </figcaption>
                 </figure>
               </a>
             ))}
